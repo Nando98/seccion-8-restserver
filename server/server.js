@@ -16,7 +16,9 @@ app.use(bodyParser.json())
 
 //=============================
 
-app.use( require('./routes/usuario') );
+
+//Global config for routes
+app.use( require('./routes/index') );
 
 
 // START DATABASE
