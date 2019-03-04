@@ -5,3 +5,5 @@ podremos ver cuales son las variables de entorno del servidor.
 
 PASO 2: Para crear una nueva variable de entorno dentro de **Heroku** debemos
 ejecutar el comando ```heroku config:set {variable}={cadena de texto}```
+
+NOTA: Para ver los logs ejecutas el comando ```heroku logs --tail```.

@@ -29,7 +29,22 @@ let verificarRol = (req, res, next) => {
 };
 
 
+let verificarImageToken = (req, res, next) => {
+
+    let access_token = req.query.q;
+
+    jwt.verify(access_token, process.env.TOKEN_SECRET_KEY, (err, decode) => {
+        if (err) {
+            return res.status(401).json({ ok: false, err: { name: err.name, message: 'Invalid access token.' } });
+        }
+
+        req.payload = decode.payload;
+        next();
+    });
+}
+
 module.exports = {
     verificarToken,
-    verificarRol
+    verificarRol,
+    verificarImageToken
 };
