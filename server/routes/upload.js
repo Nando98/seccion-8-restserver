@@ -61,7 +61,11 @@ function imagenUsuario(identifier, res, nameFile) {
     Usuario.findById(identifier, (err, userDB) => {
         if (err) {
             deleteFile(nameFile, 'usuarios');
-            return res.status(500).json({ ok: false, err });
+            return res.status(500).json({
+                ok: false,
+                message: 'Error en linea 66, no hay usuario',
+                err
+            });
         }
         if (!userDB) {
             deleteFile(nameFile, 'usuarios');
@@ -73,7 +77,11 @@ function imagenUsuario(identifier, res, nameFile) {
         userDB.img = nameFile;
         userDB.save((err, userSaved) => {
             if (err) {
-                return res.status(500).json({ ok: false, err });
+                return res.status(500).json({
+                    ok: false,
+                    message: 'Error en la linea 82, error al guardarlo.',
+                    err
+                });
             }
             res.json({ ok: true, img: nameFile, usuario: userSaved });
         });
