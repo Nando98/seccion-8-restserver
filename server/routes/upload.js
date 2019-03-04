@@ -46,15 +46,14 @@ app.put('/upload/:tipo/:id', function(req, res) {
         if (err) {
             return res.status(500).json({ ok: false, err });
         }
+
+        //  Guardar imagen
+        if (tipo === 'usuarios') {
+            imagenUsuario(identifier, res, newNameFile);
+        } else {
+            imagenProducto(identifier, res, newNameFile);
+        }
     });
-
-    //  Guardar imagen
-    if (tipo === 'usuarios') {
-        imagenUsuario(identifier, res, newNameFile);
-    } else {
-        imagenProducto(identifier, res, newNameFile);
-    }
-
 });
 
 function imagenUsuario(identifier, res, nameFile) {
