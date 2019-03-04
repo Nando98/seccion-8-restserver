@@ -42,7 +42,7 @@ app.put('/upload/:tipo/:id', function(req, res) {
     let newNameFile = `${identifier}-${new Date().getTime()}.${extension}`;
 
     //  Use el método mv() para colocar el archivo en algún lugar de su servidor
-    sampleFile.mv(`uploads/${tipo}/${newNameFile}`, (err) => {
+    sampleFile.mv(`../../uploads/${tipo}/${newNameFile}`, (err) => {
         if (err) {
             return res.status(500).json({ ok: false, message: 'Error con el metodo mv()', err });
         }
