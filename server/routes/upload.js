@@ -44,7 +44,7 @@ app.put('/upload/:tipo/:id', function(req, res) {
     //  Use el método mv() para colocar el archivo en algún lugar de su servidor
     sampleFile.mv(`uploads/${tipo}/${newNameFile}`, (err) => {
         if (err) {
-            return res.status(500).json({ ok: false, err });
+            return res.status(500).json({ ok: false, message: 'Error con el metodo mv()', err });
         }
 
         //  Guardar imagen
