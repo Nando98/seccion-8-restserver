@@ -8,7 +8,7 @@ const Usuario = require('../models/usuario.model');
 const Producto = require('../models/producto.model');
 
 // Middleware -> Cuando lo llamamos, todo los archivos que cargue caen el req.files
-app.use(fileUpload({ useTempFiles: true }));
+app.use(fileUpload({ useTempFiles: false }));
 
 app.put('/upload/:tipo/:id', function(req, res) {
 
