@@ -40,10 +40,10 @@ app.put('/upload/:tipo/:id', function(req, res) {
 
     //  Cambiar el nombre del archivo
     let newNameFile = `${identifier}-${new Date().getTime()}.${extension}`;
-    let saveImagePath = path.resolve(__dirname, `uploads/${tipo}/${newNameFile}`);
+    //let saveImagePath = path.resolve(__dirname, `./../../uploads/${tipo}/${newNameFile}`);
 
     //  Use el método mv() para colocar el archivo en algún lugar de su servidor
-    sampleFile.mv(saveImagePath, (err) => {
+    sampleFile.mv(`./../../uploads/${tipo}/${newNameFile}`, (err) => {
         if (err) {
             return res.status(500).json({ ok: false, message: 'Error con el metodo mv()', err });
         }
